@@ -27,7 +27,8 @@ to create a person resource, the POST method is used, and the route path is "/ap
 this operation returns the created resource that is an object with the person just created
 
 for example :
-```POST http://localhost:5000/api
+```
+POST http://localhost:5000/api
 body parameter=> {"name": "seun bamisebi"}
 ```
 ***note*** this application was designed to not have repetition of names, that is if a person resource with the same name provided exists, the request won't be successful.
@@ -39,7 +40,8 @@ on successful request, the person resourse is returned.
 this operation returns the requested resource that is an object with the person name provided.
 
 for example :
-```GET http://localhost:5000/api
+```
+GET http://localhost:5000/api
 body parameter=> {"name": "tobi bamisebi"}
 ```
 ***note*** each person has a unique id and name.
@@ -51,7 +53,8 @@ this operation returns a message of a successful update.
 
 for example :
 
-``` PUT http://localhost:5000/api/tobi
+```
+ PUT http://localhost:5000/api/tobi
 body parameter=> {"name": "tobi bamisebi"} 
 ```
 
@@ -60,7 +63,8 @@ to delete a person resource, the PUT method is used, and the route path is "/api
 
 this operation returns a message of a successful deletion and now that name can be used to create a new person.
 
-``` DELETE http://localhost:5000/api
+```
+DELETE http://localhost:5000/api
 body parameter=> {"name": "tobi bamisebi"} 
 ```
 
