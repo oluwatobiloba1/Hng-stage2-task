@@ -71,5 +71,9 @@ body parameter=> {"name": "tobi bamisebi"}
 If the request was not successful, a message indicating what was wrong will be sent.
 
 
+this application was tested thoroughly using postman, you can use any api testing platform.
+***The request body doesn't have to be in a Json format, the urlEncoded format is also permitted***
+
+
 
 ![uml](diagram.png)
