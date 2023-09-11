@@ -76,4 +76,23 @@ this application was tested thoroughly using postman, you can use any api testin
 
 
 
+# How to run this app locally
+
+***note: kindly have node of version >16 installed for mongodb to run and kindly have typescript installed***
+### steps:
+- you can fork or clone this repository
+- run npm install to install all necessary dependency
+- create your mongodb atlas account, to get a free database
+- once you have a mongodb atlas account, follow the steps given on the dashboard to connect your app to the database, this step will help you get a database uri
+- add the uri gotten to your .env file with the right key which is ``MONGODB_URI``
+- enter the following comand to then start the app ``npm run start``
+- once the app starts you will see in the console what port it is being served on and you will also get a message displaying a secure connection to the database you created
+- you can also start the server with this command ``ts-node src/index.ts``
+- open your api platform testing app and you are good to go.
+
+
+  Thank you.
+
+
+
 ![uml](diagram.png)
