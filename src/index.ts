@@ -62,7 +62,7 @@ app.put('/api/:name',param('name').notEmpty().escape(), body('name').notEmpty().
 app.delete('/api/:name',param('name').notEmpty().escape(), (req, res) => {
   const result = validationResult(req);
   if(result.isEmpty()) {
-    const personName = req.query?.name
+    const personName = req.params?.name
   service.delete(personName).then((response) => {
     return res.json({message: 'delete successful', name:personName}).status(200);
 
