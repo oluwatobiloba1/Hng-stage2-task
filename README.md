@@ -3,8 +3,7 @@
 
 The application creates a person, deletes a person, update a person, and get a person using the name of the person.
 
-four endpoints were created to handle the CRUD operation, all of the endpoints receive necessary parameters via the request body, except for the update endpoint which receives an extra parameter, via the url.
-once.
+four endpoints were created to handle the CRUD operation, POST and PUT endpoints receive necessary parameters via the request body, and each action resource receives the person name as a url parameter, except for the POST endpoint.
 
 
 # How to run this app locally
