@@ -82,7 +82,7 @@ export class ApiService {
     }
   }
 
-  public async delete(data: IPerson['name']){
+  public async delete(data: string){
     const findPersonWithName = this.get(data)
 
     if(!(await findPersonWithName)._id) {
