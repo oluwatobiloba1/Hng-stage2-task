@@ -47,11 +47,11 @@ app.put('/api/:name',param('name').notEmpty().escape(), body('name').notEmpty().
     const data:IPerson =  req.body
     const response = service.update(data, req.params?.name)
     response.then((data) => {
-      res.json({message: 'update successful'}).status(200);
+      return res.json({message: 'update successful'}).status(200);
     })
     .catch((err) => {
       console.log(err)
-      res.json({message: 'something went wrong this is not you'}).status(500);
+      return res.json({message: 'something went wrong this is not you'}).status(500);
     })
   }else{
     return res.json({message: 'please check the paramaters passed'}).status(400);
@@ -64,12 +64,12 @@ app.delete('/api', (req, res) => {
   if(result.isEmpty()) {
     const data = req.body
   service.delete(data.name).then((data) => {
-    res.json({message: 'delete successful'}).status(200);
+    return res.json({message: 'delete successful'}).status(200);
 
   })
   .catch((err) => {
     console.log(err)
-    res.json({message: 'something went wrong this is not you'}).status(500);
+    return res.json({message: 'something went wrong this is not you'}).status(500);
   })
   }
   else{
@@ -85,10 +85,10 @@ app.post('/api', (req, res) => {
   const response = service.create(data)
   response.then((data) => {
     // console.log(data);
-    res.json(data).status(200);
+    return res.json(data).status(200);
   }).catch((err) => {
     console.log(err)
-    res.json({message: 'something went wrong this is not you'}).status(500);
+    return res.json({message: 'something went wrong this is not you'}).status(500);
   })
   }
   else{
