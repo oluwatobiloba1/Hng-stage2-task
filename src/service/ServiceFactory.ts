@@ -83,15 +83,23 @@ export class ApiService {
   }
 
   public async delete(data: string){
-    const findPersonWithName = this.get(data)
+    let findPersonWithName;
+    try{
+      const checkUser = await this.get(data);
+      findPersonWithName = checkUser;   
 
-    if(!(await findPersonWithName)._id) {
+    }
+    catch(error){
+      console.log(error)
+    }
+
+    if(!findPersonWithName?._id) {
       return;
     }
     else{
       try {
-        const person = Person.deleteOne({name: data});
-        return person as any;
+        await Person.deleteOne({name: data});
+        return {_id: findPersonWithName?._id, name: findPersonWithName.name};
       } catch (error: any) {
         return {message: error.message}
       }
