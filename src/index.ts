@@ -47,7 +47,7 @@ app.put('/api/:name',param('name').notEmpty().escape(), body('name').notEmpty().
     const data:IPerson =  req.body
     const response = service.update(data, req.params?.name)
     response.then((data) => {
-      return res.json({message: 'update successful'}).status(200);
+      return res.json(data).status(200);
     })
     .catch((err) => {
       console.log(err)
@@ -63,8 +63,8 @@ app.delete('/api', (req, res) => {
   const result = validationResult(req);
   if(result.isEmpty()) {
     const data = req.body
-  service.delete(data.name).then((data) => {
-    return res.json({message: 'delete successful'}).status(200);
+  service.delete(data.name).then((response) => {
+    return res.json({message: 'delete successful', name:data.name}).status(200);
 
   })
   .catch((err) => {

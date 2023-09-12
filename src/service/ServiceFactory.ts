@@ -50,20 +50,31 @@ export class ApiService {
   }
 
 
-  public async update(data: IPerson, queryIdentifier: string): Promise<Record<string, string> |IPerson> {
-    const findPersonWithName = this.get(queryIdentifier)
-    const confirmNameUniquenss = this.get(data.name)
+  public async update(data: IPerson, queryIdentifier: string){
+    let findPersonWithName;
+    let confirmNameUniquenss;
+    try{
+      const checkUser = await this.get(queryIdentifier);
+      findPersonWithName = checkUser;   
 
-    if(!(await findPersonWithName)._id) {
+      const checkUserName = await this.get(data.name);
+      confirmNameUniquenss = checkUserName;
+    }
+    catch(error){
+      console.log(error)
+    }
+
+
+    if(!findPersonWithName?._id) {
       return {message: 'Person does not exists, would you like to create it?'};
     }
-    if((await confirmNameUniquenss)._id) {
+    if(confirmNameUniquenss?._id) {
       return {message: 'A person with this name already exists, use a different name'};
     }
     else{
       try {
-        const person = Person.updateOne({name: queryIdentifier}, data);
-        return person as any;
+        const returnedUpdate = await Person.findOneAndUpdate({name: queryIdentifier}, data);
+        return {_id: returnedUpdate?._id, name:data.name}
       } catch (error: any) {
         console.log(error)
         return {message: error.message}
