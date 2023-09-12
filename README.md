@@ -59,13 +59,12 @@ body parameter=> {"name": "tobi bamisebi"}
 ```
 
 To delete:
-to delete a person resource, the PUT method is used, and the route path is "/api", a request body with the name of the person should be provided for a successfull request.
+to delete a person resource, the PUT method is used, and the route path is "/api/:name", a request parameter with the name of the person should be provided for a successfull request.
 
 this operation returns a message of a successful deletion and now that name can be used to create a new person.
 
 ```
-DELETE http://localhost:5000/api
-body parameter=> {"name": "tobi bamisebi"} 
+DELETE http://localhost:5000/api/tobi
 ```
 
 If the request was not successful, a message indicating what was wrong will be sent.
