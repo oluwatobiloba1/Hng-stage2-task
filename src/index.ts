@@ -7,7 +7,7 @@ import './server/db/connect'
 import { param , body, validationResult} from 'express-validator';
 
 const app = express();
-const port = 5000
+const port = process.env.PORT || 3000;
 
 const service = new ApiService()
 
@@ -103,6 +103,6 @@ app.get('*', (req, res) => {
 })
 
 
-app.listen(port,()=>{
+app.listen((port as number), "0.0.0.0",()=>{
     console.log(`server is running on port ${port}`);
 })
