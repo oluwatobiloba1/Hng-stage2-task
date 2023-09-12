@@ -102,7 +102,7 @@ Response
 ```
 {
   "_id": "12233344",
-  "name": "seun"
+  "name": "seun bamisebi"
 }
 ```
 
